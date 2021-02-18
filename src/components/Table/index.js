@@ -1,18 +1,20 @@
 import React from "react";
-
+import "./index.css";
 
 
 function Table(props) {
     return <table class="table">
     <tr>
-      <th>Employee #</th>
-      <th>Name</th>
-      <th>E-mail</th>
-      <th>Phone</th>
-      <th>Location</th>
-      <th class="empty"></th>
+        <thead class ="thead-dark ">
+            <th scope ="col">Employee #</th>
+            <th scope ="col">Name</th>
+            <th scope ="col">E-mail</th>
+            <th scope ="col">Phone</th>
+            <th scope ="col">Location</th>
+            <th scope ="col"class="empty"></th>
+        </thead>
     </tr>
     </table>
-  }
+};
   
-  export default Table;
+  export default Table
