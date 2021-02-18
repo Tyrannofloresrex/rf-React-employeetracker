@@ -1,30 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Employee from"./Employee"
-import axios from "axios";
 
-class EmployeeIndex extends Component{
-    state = {
-        employees: []
-    }
-    componentdidMount(){
-        axios .get("https://randomuser.me/api/?results=20")
-        .then(response => {
-            this.setState({employees: response.data.results})
-        })
-        .catch(err => {
-            console.log(err)
-        });
-    };
 
-    render() {
-        const employeeList =this.state.employees.map( employee => (
-            <Employee 
-                name={employee.name.first}
-                image = {employee.picture.medium}
-            />
-        ));
-        return <div className= "columns is-multiline">{employeeList}</div>
-    }
+function Employee(props) {
+  return (
+    <tr>
+      <td className="img-column">
+        <img alt={props.name} src={props.image} />
+      </td>
+      <td>{props.name}</td>
+      <td>{props.email}</td>
+      <td>{props.cell}</td>
+      <td>{props.location}</td>
+      <span
+        onClick={() => props.deleteEmployee(props.email)}
+        className="remove"
+      >
+        X
+      </span>
+    </tr>
+  );
 }
-ReactDOM.render(<EmployeeIndex />, document.getElementById("root"));
+
+export default Employee;
